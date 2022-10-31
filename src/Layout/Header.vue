@@ -8,7 +8,10 @@
           inactive-text="Collapse"
       >
       </el-switch>
-      <span>Инносети, Тестовое задание Frontend</span>
+      <div>
+        <el-button type="danger" round @click="clearTransfers">Очистить счетчик</el-button>
+        <span class="header_title">Инносети, Тестовое задание Frontend</span>
+      </div>
     </div>
 </template>
 <script>
@@ -16,6 +19,11 @@ export default {
   data() {
     return {
       isCollapse: this.$store.state.menuOpen
+    }
+  },
+  methods: {
+    clearTransfers(){
+      this.$store.commit('clearTransfers')
     }
   },
   watch: {
@@ -30,6 +38,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.header_title{
+  margin-left: 20px;
+  font-size: 18px;
 }
 .el-header {
   background-color: whitesmoke;

@@ -15,6 +15,10 @@ const store = new Vuex.Store({
             state.transfers = state.transfers + 1
             localStorage.setItem('transfer', state.transfers + '')
         },
+        clearTransfers(state){
+            state.transfers = 0
+            localStorage.setItem('transfer', '0')
+        },
         openModal(state, payload){
             state.dialogUserId = payload
             state.dialogVisible = true

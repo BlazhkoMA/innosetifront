@@ -47,7 +47,6 @@
     data() {
       return {
         loading: true,
-        dialogVisible: true,
         error: false,
         user: null,
       }
@@ -64,10 +63,10 @@
       if(this.dialogUserId){
         this.user = await getUser(this.dialogUserId)
         this.loading = false
-      } else {
-        this.loading = false
-        this.error = true
+        return
       }
+      this.loading = false
+      this.error = true
     },
     methods: {
       handleClose() {
