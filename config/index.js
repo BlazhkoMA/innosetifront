@@ -51,7 +51,7 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../docs'),
     assetsSubDirectory: 'static',
     assetsPublicPath: './',
-    publicPath: '/innosetifront/',
+    baseUrl: '/innosetifront/',
     /**
      * Source Maps
      */
