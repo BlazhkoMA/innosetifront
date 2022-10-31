@@ -8,7 +8,7 @@
         v-loading="loading"
     >
       <h2 v-if="error">Произошла ошибка</h2>
-      <div class="modal_content">
+      <div class="modal_content" v-if="user">
         <div class="modal_content_item">
           <span>{{user.name}}</span>
         </div>
@@ -61,8 +61,10 @@
     },
     async mounted() {
       if(this.dialogUserId){
-        this.user = await getUser(this.dialogUserId)
-        this.loading = false
+        getUser(this.dialogUserId).then(res => {
+          this.user = res
+          this.loading = false
+        })
         return
       }
       this.loading = false

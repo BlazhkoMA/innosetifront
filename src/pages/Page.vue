@@ -19,11 +19,6 @@
 import menu from "../../options/menu";
 
 export default {
-  data() {
-    return {
-      key: this.$route.name,
-    }
-  },
   computed: {
     transfer() {
       return this.$store.state.transfers

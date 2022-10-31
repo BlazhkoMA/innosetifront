@@ -1,8 +1,6 @@
 <template>
   <el-menu
       class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
       :collapse="!isCollapse"
   >
     <el-menu-item :key="item.alias" v-for="item in menu" @click="goTo(item.alias)">
@@ -12,8 +10,7 @@
     </el-menu-item>
   </el-menu>
 </template>
-<style>
-
+<style >
 .el-menu-vertical-demo {
   width: 64px;
 }
@@ -49,12 +46,6 @@ export default {
         router.push({name: route})
       }
     },
-    handleOpen() {
-      localStorage.setItem('menuOpen', 'true')
-    },
-    handleClose() {
-      localStorage.setItem('menuOpen', 'false')
-    }
   },
 }
 </script>

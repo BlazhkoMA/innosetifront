@@ -34,4 +34,5 @@ const store = new Vuex.Store({
     }
 })
 
+// TODO to actions get users and user
 export default store;

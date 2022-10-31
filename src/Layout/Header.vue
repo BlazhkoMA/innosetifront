@@ -1,7 +1,8 @@
 <template>
     <div class="header_container">
       <el-switch
-          v-model="isCollapse"
+          @input="kek"
+          :value="$store.state.menuOpen"
           active-color="#13ce66"
           inactive-color="#ff4949"
           active-text="Expand"
@@ -16,21 +17,15 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      isCollapse: this.$store.state.menuOpen
-    }
-  },
+
   methods: {
+    kek(newValue) {
+      this.$store.commit('setMenuState', newValue)
+    },
     clearTransfers(){
       this.$store.commit('clearTransfers')
     }
   },
-  watch: {
-    isCollapse(newValue) {
-      this.$store.commit('setMenuState', newValue)
-    }
-  }
 }
 </script>
 <style>

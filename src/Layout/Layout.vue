@@ -21,15 +21,5 @@ import Menu from "../components/Menu";
 import Header from "./Header";
 export default {
   components: {Menu, Header},
-  data() {
-    return {
-      isCollapse: this.$store.state.menuOpen
-    }
-  },
-  watch: {
-    isCollapse(newValue) {
-      this.$store.commit('setMenuState', newValue)
-    }
-  }
 }
 </script>

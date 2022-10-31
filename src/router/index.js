@@ -5,6 +5,7 @@ import menu from "../../options/menu";
 Vue.use(Router)
 
 export default new Router({
+    mode: 'history',
   routes: [
       ...menu.map(item => {
           return {
