@@ -2,10 +2,10 @@
 <template>
   <div class="page">
     <h2>{{pageName}}</h2>
-    <h3>Переходов по меню {{transfer}}</h3>
+    <h3>Переходов по меню {{transitionCount}}</h3>
   </div>
 </template>
-<style>
+<style scoped>
 .page{
   display: flex;
   flex-direction: column;
@@ -20,11 +20,11 @@ import menu from "../../options/menu";
 
 export default {
   computed: {
-    transfer() {
-      return this.$store.state.transfers
+    transitionCount() {
+      return this.$store.getters.getTransitionCount;
     },
     pageName() {
-      const menuItemIndex = menu.findIndex(item => item.alias === this.$route.name)
+      const menuItemIndex = menu.findIndex(item => item.name === this.$route.name)
       if(menuItemIndex !== -1){
         return menu[menuItemIndex].title
       } else {

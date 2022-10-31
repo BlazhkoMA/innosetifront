@@ -1,8 +1,7 @@
 <template>
   <el-table
       @row-click="openModal"
-      :data="tableData"
-      v-loading="loading"
+      :data="users"
   >
     <el-table-column
         :prop="col.prop"
@@ -13,16 +12,16 @@
     />
   </el-table>
 </template>
+<style>
+.el-table__row{
+  cursor: pointer;
+}
+</style>
 <script>
 
-import {getUsers} from "../api/usersApi";
-
 export default {
-
   data() {
     return {
-      tableData: [],
-      loading: true,
       tableStructure: [
         {
           id: 1,
@@ -53,12 +52,16 @@ export default {
   },
   methods: {
     openModal(row){
-      this.$store.commit('openModal', row.id)
+      this.$store.dispatch('openModal', row.id)
     }
   },
-  async mounted() {
-    this.tableData = await getUsers();
-    this.loading = false
+  computed: {
+    users() {
+      return this.$store.getters.getUsers;
+    }
+  },
+  mounted() {
+    this.$store.dispatch('fetchUsers')
   }
 }
 </script>

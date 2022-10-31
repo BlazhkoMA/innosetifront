@@ -9,10 +9,11 @@ export default new Router({
   routes: [
       ...menu.map(item => {
           return {
-              path: item.route,
-              name: item.alias,
+              path: item.path,
+              name: item.name,
               component: item.component
           }
-      })
+      }),
+      { path: '*', redirect: '/' }
   ]
 })

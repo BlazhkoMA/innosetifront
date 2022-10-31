@@ -1,12 +1,12 @@
 <template>
     <div class="header_container">
       <el-switch
-          @input="kek"
-          :value="$store.state.menuOpen"
+          @input="setMenuState"
+          :value="isMenuOpen"
           active-color="#13ce66"
           inactive-color="#ff4949"
-          active-text="Expand"
-          inactive-text="Collapse"
+          active-text="Раскрыто"
+          inactive-text="Скрыто"
       >
       </el-switch>
       <div>
@@ -15,19 +15,6 @@
       </div>
     </div>
 </template>
-<script>
-export default {
-
-  methods: {
-    kek(newValue) {
-      this.$store.commit('setMenuState', newValue)
-    },
-    clearTransfers(){
-      this.$store.commit('clearTransfers')
-    }
-  },
-}
-</script>
 <style>
 .header_container{
   display: flex;
@@ -44,3 +31,20 @@ export default {
   line-height: 60px;
 }
 </style>
+<script>
+export default {
+  computed: {
+    isMenuOpen() {
+      return this.$store.getters.getIsMenuOpen;
+    }
+  },
+  methods: {
+    setMenuState(newValue) {
+      this.$store.dispatch('switchMenuState', newValue)
+    },
+    clearTransfers(){
+      this.$store.dispatch('clearTransition')
+    }
+  },
+}
+</script>

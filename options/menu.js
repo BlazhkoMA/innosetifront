@@ -3,30 +3,30 @@ import Page from '../src/pages/Page'
 const menu = [
     {
         title: 'Главная',
-        alias: 'main',
+        name: 'main',
         icon: null,
-        route: '',
+        path: '/',
         component: Index
     },
     {
         title: 'Страница',
-        alias: 'menu1',
+        name: 'menu1',
         icon: 'el-icon-s-home',
-        route: '/page',
+        path: '/page',
         component: Page
     },
     {
         title: 'Продукт',
-        alias: 'menu2',
+        name: 'menu2',
         icon: 'el-icon-s-flag',
-        route: '/product',
+        path: '/product',
         component: Page
     },
     {
         title: 'Каталог',
-        alias: 'menu3',
+        name: 'menu3',
         icon: null,
-        route: '/catalog',
+        path: '/catalog',
         component: Page
     },
   ]

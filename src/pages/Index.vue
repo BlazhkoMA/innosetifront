@@ -1,28 +1,22 @@
 /* eslint-disable */
 <template>
-  <el-main>
-    <Table/>
-    <ModalUser v-if="dialogVisible && dialogUserId"/>
-  </el-main>
+  <el-main style="padding: 0">
+      <Page/>
+      <Table/>
+      <ModalUser v-if="dialogVisible"/>
+    </el-main>
 </template>
-<style>
-  .el-table__row{
-    cursor: pointer;
-  }
-</style>
 <script>
 import ModalUser from "../components/ModalUser";
 import Table from "../components/Table";
+import Page from "./Page";
 
 export default {
-  components: {ModalUser, Table},
+  components: {ModalUser, Table, Page},
   computed: {
     dialogVisible() {
-      return this.$store.state.dialogVisible
+      return this.$store.getters.getDialogVisible
     },
-    dialogUserId() {
-      return this.$store.state.dialogUserId
-    }
   },
 };
 </script>
