@@ -24,8 +24,6 @@ export default {
       key: this.$route.name,
     }
   },
-  mounted() {
-  },
   computed: {
     transfer() {
       return this.$store.state.transfers

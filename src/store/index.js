@@ -7,7 +7,7 @@ const store = new Vuex.Store({
             transfers: +localStorage.getItem('transfer'),
             menuOpen: !!localStorage.getItem('menuOpen'),
             dialogVisible: false,
-            dialogMovieId: null
+            dialogUserId: null
         }
     },
     mutations: {
@@ -16,11 +16,11 @@ const store = new Vuex.Store({
             localStorage.setItem('transfer', state.transfers + '')
         },
         openModal(state, payload){
-            state.dialogMovieId = payload
+            state.dialogUserId = payload
             state.dialogVisible = true
         },
         closeModal(state){
-            state.dialogMovieId = null
+            state.dialogUserId = null
             state.dialogVisible = false
         },
         setMenuState(state, payload){
