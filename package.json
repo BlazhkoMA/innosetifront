@@ -2,6 +2,7 @@
   "name": "webpack-example",
   "version": "1.0.0",
   "description": "A Vue.js project",
+  "homepage": "https://blazhkoma.github.io/innosetifront/",
   "author": "Mikhail Blazhko <blazhko.ma@yandex.ru>",
   "private": true,
   "scripts": {
