@@ -12,9 +12,6 @@ const usersStore = {
         setDialogVisible(state, payload){
             state.dialogVisible = payload
         },
-        setDialogUserId(state, payload) {
-            state.dialogUserId = payload
-        },
         setUsers(state, payload) {
             state.users = payload
         },
@@ -23,6 +20,14 @@ const usersStore = {
         }
     },
     actions: {
+        async fetchUsers({commit}){
+            const response = await fetch(USERS_URL)
+            const users = await response.json()
+            commit('setUsers', users )
+        },
+        clearUsers({commit}){
+            commit('setUsers', [] )
+        },
          async openModal({commit}, payload){
             commit('setDialogVisible', true)
              const response = await fetch(USERS_URL + '/' +  payload)
@@ -32,11 +37,6 @@ const usersStore = {
         closeModal({commit}){
             commit('setDialogVisible', false)
             commit('setUser', null)
-        },
-        async fetchUsers({commit}){
-            const response = await fetch(USERS_URL)
-            const users = await response.json()
-            commit('setUsers', users )
         },
     },
     getters: {

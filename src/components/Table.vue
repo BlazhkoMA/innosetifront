@@ -62,6 +62,9 @@ export default {
   },
   mounted() {
     this.$store.dispatch('fetchUsers')
+  },
+  beforeDestroy() {
+    this.$store.dispatch('clearUsers')
   }
 }
 </script>

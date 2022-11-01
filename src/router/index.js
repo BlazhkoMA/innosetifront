@@ -6,9 +6,8 @@ Vue.use(Router)
 
 export default new Router({
     mode: 'history',
-
     base: '/innosetifront/',
-  routes: [
+    routes: [
       ...menu.map(item => {
           return {
               path: item.path,
@@ -17,5 +16,5 @@ export default new Router({
           }
       }),
       { path: '*', redirect: '/' }
-  ]
+    ]
 })
